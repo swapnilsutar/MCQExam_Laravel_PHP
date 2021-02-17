@@ -27,6 +27,13 @@
         <h3>
             Basic Web Development MCQ
         </h3>
+
+<br>
+            <a href="/newquestion">
+            <button class="btn btn-warning" > Add New Question </button>
+            </a>
+<br>
+<br>
         <form action="answer" method="post">
         @csrf
             <div class="card">
@@ -64,8 +71,24 @@
                 </li>
             </ol>
             </div>
+            <br>
             <button class='btn btn-success' type="submit">Submit</button>
         </form>
+
+        @foreach($question as $q)
+            <h1>
+                {{ $q->question}}
+            </h1>
+        @endforeach
+
+        @foreach($data as $d)
+
+            <h4>
+                {{ $d->question_number }}
+                {{ $d->option }}
+            </h4>
+
+        @endforeach
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
