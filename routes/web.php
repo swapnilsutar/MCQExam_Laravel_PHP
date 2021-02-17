@@ -15,12 +15,26 @@ Route::post('/answer',function(){
 });
 
 Route::get('/newquestion', function () {
-    return view('newquestion');
+    if(!session()->has('name')){
+        return view('login');
+    }
+    else{
+        return view('newquestion');
+    }
 });
 // Route::view('newquestion','newquestion');
 
 Route::post('insertquestion',[HomeController::class,'store']);
 
-Route::get('/',[HomeController::class,'display'])->name('welcome');
+// Route::get('/',[HomeController::class,'display'])->name('welcome');
+
+Route::get('/test',[HomeController::class,'display'])->name('test');
 
 Route::post('/submitanswer',[HomeController::class,'result']);
+
+Route::post('/checklogin',[HomeController::Class,'login']);
+
+Route::get('logout',function(){
+    session()->forget('name');
+    return redirect('login');
+});

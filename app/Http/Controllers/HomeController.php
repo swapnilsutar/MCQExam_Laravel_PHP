@@ -63,7 +63,7 @@ class HomeController extends Controller
       $question = Question::all();
       $ans = Option::all();
 
-      return view('welcome')->with(['data'=>$ans,'question'=>$question]);
+      return view('test')->with(['data'=>$ans,'question'=>$question]);
     }
 
     public function result(Request $req){
@@ -78,4 +78,22 @@ class HomeController extends Controller
       return 'Total score '.$cou." out of ".$number;
     }
 
+    public function login(Request $req){
+
+      $username = $req->input('username');
+      $password = $req->input('password');
+
+      if(($username === 'swapnilsutar@sutar.com') && ($password === 'ABCDABCD') ){
+
+        session(['name' => 'Admin']);
+
+        return redirect('/newquestion');
+      }
+      else{
+        return "Incorrect Password";
+      }
+
+    }
+
 }
+

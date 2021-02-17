@@ -27,7 +27,9 @@
    </nav>
 
    <div class="container">
-   
+      <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
       <div class="login-card ">
          <div class="card mt-5">
             <div class="card-header">
@@ -35,13 +37,17 @@
             </div>
             <div class="card-body mb-5 mt-3">
                <form action="/checklogin" method='post'>
+               @csrf
                   <input type="text" name="username" placeholder="Username" class="form-control"> <br>
-                  <input type="password" name="username" placeholder="Password" class="form-control"> <br>
+                  <input type="password" name="password" placeholder="Password" class="form-control"> <br>
                   <button type="submit" class="btn btn-primary w-100">Login</button>
                </form>
             </div>
          </div>
          </div>
+      </div>
+      </div>
+
    </div>
 
    <footer class='text-center mt-5'>

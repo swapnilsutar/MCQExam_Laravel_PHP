@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav m-auto">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
-                    <a class="nav-link" href="/login">login</a>
+                    <a class="nav-link" href="/login">Login</a>
 
                     </div>
                 </div>
@@ -45,55 +45,33 @@
 
         <div class="container">
 
-        <h3>
-            Basic Web Development MCQ
-        </h3>
+
 
 <br>
-            <a href="/newquestion">
-            <button class="btn btn-warning" > Add New Question </button>
-            </a>
-            <a href="/login">
-            <button class="btn btn-warning" > Login </button>
-            </a>
-<br/>
-<br/>
 
-        <form action="submitanswer" method="post">
-        @csrf
-        @foreach($question as $q)
-        <div class="card">
-            <div class="card-header">
-            
-                {{ $q->id}}
-                {{ $q->question}}
-            
+        <h3 class="text-center">
+             Multiple Choice Question Test <br>  on <br>
+             Web Development <br>
+        </h3>
+<br/>
+<br/>
+            <div class="text-center">
+                <a href="/test">
+                <button class="btn btn-success start-btn" >
+                     Start the test
+                </button>
+                </a>
             </div>
-            @foreach($data as $d)
-                @if( ($q->id) == ($d->question_number) )
-                    
-                <div class="card-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name='{{ $q->id }}' id="{{ $d->id }}" value="{{ $d->is_correct }}">
-                        <label class="form-check-label" for="{{ $d->id }}">
-                            {{ $d->option }}
-                        </label>
-                    </div>
-                </div>
-
-                @endif
-            @endforeach
-        </div>
-        <br>
-        @endforeach
-        <button type="submit" class='btn btn-danger w-100'>Submit</button>
-        </form>
 
 
 
+        <footer class='text-center mt-5 mb-5'>
+      Copyright &#169; 2021 : <a href="https://swapnilsutar.netlify.com" target="_blank"> Swapnil Sutar</a>
+   </footer>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     </body>
 </html>

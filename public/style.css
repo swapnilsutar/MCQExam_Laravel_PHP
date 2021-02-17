@@ -15,10 +15,27 @@ body{
    border: none;
    border-radius: 5px;
 }
-
+.form-check-label{
+   width: 100%;
+}
 .login-card{
    margin: auto;
-   width: 50%;
+   /* width: 50%; */
+}
+
+.start-btn{
+   margin: auto;
+   padding:30px;
+   font-size: 30px;
+}
+
+.form-check li{
+   list-style-type: none;
+   padding:8px;
+}
+.form-check li:hover{
+   background-color:rgba(128, 128, 128, 0.226);
+   transition: .5s;
 }
 
 footer a{
