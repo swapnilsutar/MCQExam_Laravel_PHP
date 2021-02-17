@@ -66,4 +66,16 @@ class HomeController extends Controller
       return view('welcome')->with(['data'=>$ans,'question'=>$question]);
     }
 
+    public function result(Request $req){
+
+      $number = Question::get()->count();
+
+      $cou =0;
+      for($i=1; $i<=$number;$i++){
+        $cou += $req->input($i);
+      }
+
+      return 'Total score '.$cou." out of ".$number;
+    }
+
 }

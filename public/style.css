@@ -1,0 +1,26 @@
+body{
+   background-color: #f0f0f0;
+}
+.navbar{
+   background-color: rgb(212, 0, 255) ;
+}
+.nav-link{
+   padding-left: 19px!important;
+   padding-right: 19px!important;
+}
+.nav-link:hover{
+   transition: .5s;
+   background-color: rgb(130, 47, 155);
+   color: white!important;
+   border: none;
+   border-radius: 5px;
+}
+
+.login-card{
+   margin: auto;
+   width: 50%;
+}
+
+footer a{
+   text-decoration: none;
+}

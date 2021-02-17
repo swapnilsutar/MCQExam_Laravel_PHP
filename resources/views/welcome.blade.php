@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title> Exam </title>
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
 
         <style>
             .card{
-                background-color:wheat;
+                /* background-color:wheat; */
             }
             .card-header{
                 padding:10px;
@@ -19,10 +19,31 @@
             .card-body{
                 padding:10px;
             }
+            a{
+                text-decoration:none;
+            }
         </style>
     </head>
-    <body class="container">
-        <h1 class="text-center"> Swapnil Sutar</h1>
+    <body >
+
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
+                <!-- <a class="navbar-brand m-auto" href="#">Multiple Choice Question</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav m-auto">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/login">login</a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
 
         <h3>
             Basic Web Development MCQ
@@ -32,63 +53,44 @@
             <a href="/newquestion">
             <button class="btn btn-warning" > Add New Question </button>
             </a>
-<br>
-<br>
-        <form action="answer" method="post">
-        @csrf
-            <div class="card">
-            <ol class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="card-header">
-                        What is HTML ? 
-                        <input type="hidden" name="111" value="Question 1">
-                    </div>
-                    <div class="card-body" >
-                        <div class="form-check">
-                            <input  class="form-check-input" type="radio" id="1" name="1" value="1">       
-                            <label for="1">HyperText Markup Language</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="1" id="2" value="2"> 
-                            <label for="2">
-                            Hyper Text Makeup Language
-                            </label>
-                        </div>
+            <a href="/login">
+            <button class="btn btn-warning" > Login </button>
+            </a>
+<br/>
+<br/>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="1" id="3" value="3"> 
-                            <label class="form-check-label" for="3">
-                            Hyperlink Makeup Language
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="1" id="4" value="4"> 
-                            <label for="4">
-                            Hyper Text Makeup Language
-                            </label>
-                        </div>
-                    </div>
-                </li>
-            </ol>
+        <form action="submitanswer" method="post">
+        @csrf
+        @foreach($question as $q)
+        <div class="card">
+            <div class="card-header">
+            
+                {{ $q->id}}
+                {{ $q->question}}
+            
             </div>
-            <br>
-            <button class='btn btn-success' type="submit">Submit</button>
+            @foreach($data as $d)
+                @if( ($q->id) == ($d->question_number) )
+                    
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name='{{ $q->id }}' id="{{ $d->id }}" value="{{ $d->is_correct }}">
+                        <label class="form-check-label" for="{{ $d->id }}">
+                            {{ $d->option }}
+                        </label>
+                    </div>
+                </div>
+
+                @endif
+            @endforeach
+        </div>
+        <br>
+        @endforeach
+        <button type="submit" class='btn btn-danger w-100'>Submit</button>
         </form>
 
-        @foreach($question as $q)
-            <h1>
-                {{ $q->question}}
-            </h1>
-        @endforeach
 
-        @foreach($data as $d)
 
-            <h4>
-                {{ $d->question_number }}
-                {{ $d->option }}
-            </h4>
-
-        @endforeach
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
