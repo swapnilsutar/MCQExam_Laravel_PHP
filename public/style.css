@@ -22,11 +22,20 @@ body{
    margin: auto;
    /* width: 50%; */
 }
-
 .start-btn{
    margin: auto;
    padding:30px;
    font-size: 30px;
+}
+.card-header{
+   padding:10px;
+   background-color:;
+}
+.card-body{
+   padding:10px;
+   }
+a{
+   text-decoration:none;
 }
 
 .form-check li{
