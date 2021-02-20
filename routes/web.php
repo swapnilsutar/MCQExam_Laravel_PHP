@@ -38,3 +38,5 @@ Route::get('logout',function(){
     session()->forget('name');
     return redirect('login');
 });
+
+Route::view('/score','score')->name('score');

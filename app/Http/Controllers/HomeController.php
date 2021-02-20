@@ -75,7 +75,7 @@ class HomeController extends Controller
         $cou += $req->input($i);
       }
 
-      return 'Total score '.$cou." out of ".$number;
+      return view('score',['score'=>$cou,'total'=>$number]);
     }
 
     public function login(Request $req){
