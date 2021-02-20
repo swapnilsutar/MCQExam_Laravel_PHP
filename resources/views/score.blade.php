@@ -33,12 +33,12 @@
    
    <div class="container">
       <h3 class="text-center">
-         
+         Congratulation
       </h3>
 
    <div class="text-center">
       <h1>
-         Total score {{ $score }} out of 
+         Your total score is {{ $score }} out of 
                {{ $total }}
       </h1>
    </div>
