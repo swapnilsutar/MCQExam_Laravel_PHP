@@ -26,6 +26,13 @@
       </div>
    </nav>
 
+   @if(session('status'))
+      <script>
+            alert("{{ session('status') }}");
+      </script>
+
+   @endif
+
    <div class="container">
       <div class="row">
       <div class="col-lg-3"></div>

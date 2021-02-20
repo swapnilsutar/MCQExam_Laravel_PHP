@@ -90,7 +90,7 @@ class HomeController extends Controller
         return redirect('/newquestion');
       }
       else{
-        return redirect('/login')->with('status',"Incorrect Password");
+        return redirect('/login')->with('status',"Please enter correct Username or Password");
       }
 
     }

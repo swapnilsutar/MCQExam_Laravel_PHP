@@ -7,7 +7,6 @@
         <title> Exam </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
-
         <style>
             .card{
                 /* background-color:wheat; */
@@ -36,8 +35,11 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav m-auto">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
-                    <a class="nav-link" href="/login">Login</a>
-
+                    @if(session('name'))
+                        <a class="nav-link" href="/logout"> {{session('name')}} Logout</a>
+                    @else
+                        <a class="nav-link" href="/login">Login</a>
+                    @endif
                     </div>
                 </div>
             </div>
