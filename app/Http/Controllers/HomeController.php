@@ -74,8 +74,17 @@ class HomeController extends Controller
       for($i=1; $i<=$number;$i++){
         $cou += $req->input($i);
       }
+      $fail = 40;
+      
+      $message ='';
+      if($cou < (($fail*$number)/100) ){
+        $message = "You fail to clear the test, you can retake the test again 😔";
+      }
+      else{
+        $message = " 😃😃😃Congratulation🤩🤩🤩";
+      }
 
-      return view('score',['score'=>$cou,'total'=>$number]);
+      return view('score',['score'=>$cou,'total'=>$number,'message'=>$message]);
     }
 
     public function login(Request $req){

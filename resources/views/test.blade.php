@@ -56,7 +56,7 @@
         <div class="card">
             <div class="card-header">
             
-                {{ $q->id}}
+                {{ $q->id}}. 
                 {{ $q->question}}
             
             </div>

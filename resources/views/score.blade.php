@@ -32,16 +32,19 @@
 
    
    <div class="container">
-      <h3 class="text-center">
-         Congratulation
+      <h3 class="text-center mt-5">
+         {{ $message }}
       </h3>
-
-   <div class="text-center">
-      <h1>
-         Your total score is {{ $score }} out of 
-               {{ $total }}
-      </h1>
-   </div>
+      <div class="row">
+         <div class="col-lg-3"></div>
+         <div class="col-lg-6 mt-5">
+         <div class="text-center ">
+               <div class="alert alert-success  ">
+                  You have answered <strong> {{ $score }} </strong> questions correctly out of <strong> {{ $total }} </strong> total questions.
+               </div>      
+         </div>
+         </div>
+      </div>
 
 
    </div>
