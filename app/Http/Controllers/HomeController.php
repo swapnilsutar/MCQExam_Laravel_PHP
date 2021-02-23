@@ -96,7 +96,7 @@ class HomeController extends Controller
 
         session(['name' => 'Admin']);
 
-        return redirect('/newquestion');
+        return redirect('/dashboard');
       }
       else{
         return redirect('/login')->with('status',"Please enter correct Username or Password");

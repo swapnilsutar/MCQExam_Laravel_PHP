@@ -14,7 +14,18 @@ Route::post('/answer',function(){
     return view('answer');
 });
 
+Route::get('/dashboard', function () {
+
+    if(!session()->has('name')){
+        return view('login');
+    }
+    else{
+        return view('dashboard');
+    }
+});
+
 Route::get('/newquestion', function () {
+
     if(!session()->has('name')){
         return view('login');
     }

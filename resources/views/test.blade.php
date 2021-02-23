@@ -45,12 +45,14 @@
 
         <div class="container">
 
-        <h3>
-            Basic Web Development MCQ
+        <br>
+        <h3 class="text-center">
+            Best of Luck
         </h3>
+        <br>
 
 
-        <form action="submitanswer" method="post">
+        <form action="submitanswer" method="post" name="testCheckout">
         @csrf
         @foreach($question as $q)
         <div class="card">
@@ -80,6 +82,7 @@
         <br>
         @endforeach
         <button type="submit" class='btn btn-danger w-100'>Submit</button>
+
     </form>
 
 <br><br>
